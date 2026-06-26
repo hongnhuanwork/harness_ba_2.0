@@ -1,0 +1,35 @@
+name: Generate Mobile Prototype
+description: Orchestrates mobile-specific wireframing, high-fidelity UI design, and
+  touch target mapping.
+category: Prototype
+phase: Design
+objective: Deliver high-fidelity interactive mobile mockups.
+prerequisites:
+- Low-fidelity wireframe approved
+inputs:
+- Approved Wireframes
+- Mobile style guide
+outputs:
+- output/phase-4-design/mobile-prototype-assets.md
+steps:
+- skill: prototype/generate-wireframe
+  description: Refine wireframes for mobile aspect ratio.
+- skill: prototype/generate-mobile-ui
+  description: Create high-fidelity screens using design variables.
+- skill: prototype/generate-screen-flow
+  description: Map touch-based transition pathways.
+- approval: Lead Mobile Designer
+  checklist:
+  - Mobile screen layouts conform to iOS/Android guidelines.
+  - Touch targets meet spacing guidelines.
+success_criteria:
+- Mobile UI mockups are complete and visually premium.
+- Interaction paths are validated.
+human_review:
+  required: true
+  checkpoints:
+  - Test layouts on actual mobile screen viewports.
+failure_conditions:
+- Design system variables are missing.
+next_workflows:
+- validation.yaml

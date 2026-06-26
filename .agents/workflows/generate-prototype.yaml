@@ -1,0 +1,33 @@
+name: Generate Prototype
+description: Orchestrates low-fidelity wireframing and screen sequence mapping.
+category: Prototype
+phase: Design
+objective: Generate and validate screen layout flows before high-fidelity visual design.
+prerequisites:
+- User stories and navigation flows are approved
+inputs:
+- Use Case specifications
+- Navigation Flow specification
+outputs:
+- output/phase-4-design/wireframe-layouts.md
+steps:
+- skill: prototype/generate-wireframe
+  description: Create low-fidelity screen layouts.
+- skill: prototype/generate-screen-flow
+  description: Connect wireframes showing transitions.
+- approval: UX Lead
+  checklist:
+  - All core user paths are covered.
+  - Layout matches accessibility spacing rules.
+success_criteria:
+- All wireframe screens are documented and mapped.
+- Screen transition flowchart is clear.
+human_review:
+  required: true
+  checkpoints:
+  - Validate user interactions with Product Owner.
+failure_conditions:
+- Transitions are illogical or result in dead ends.
+next_workflows:
+- generate-web-prototype.yaml
+- generate-mobile-prototype.yaml

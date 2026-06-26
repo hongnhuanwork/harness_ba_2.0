@@ -1,0 +1,50 @@
+name: Validation Workflow
+description: Orchestrates testing coverage check, UAT validation, and release readiness
+  auditing.
+category: Lifecycle
+phase: Validation
+objective: Validate that the built solution matches all requirements and satisfies
+  go-live conditions.
+prerequisites:
+- Design Workflow signed off
+- Development sprint completed
+inputs:
+- User stories backlog
+- RTM (Requirements Traceability Matrix)
+outputs:
+- output/phase-5-validation/validation-signoff.md
+steps:
+- skill: validation/validate-requirements
+  description: Check final requirements alignment with goals.
+- skill: validation/validate-scope
+  description: Verify build matches scope boundaries.
+- skill: validation/validate-user-stories
+  description: Verify stories represent correct user tasks.
+- skill: validation/validate-business-rules
+  description: Test business logic engine execution.
+- skill: validation/validate-traceability
+  description: Verify 100% test case coverage in RTM.
+- skill: validation/validate-test-coverage
+  description: Audit testing pass rates and log defects.
+- skill: validation/validate-solution-design
+  description: Validate implemented system architecture.
+- skill: validation/validate-release-readiness
+  description: Verify rollback scripts, training, and operational plans.
+- skill: validation/validate-stakeholder-alignment
+  description: Confirm steering signoff is archived.
+- approval: QA Director & Product Owner
+  checklist:
+  - All blocker and high-priority bugs are resolved.
+  - RTM displays 100% tracing coverage.
+success_criteria:
+- UAT script results show > 95% pass rate.
+- Go-Live certificate is signed by sponsors.
+human_review:
+  required: true
+  checkpoints:
+  - Verify go-live checklist before production migration.
+failure_conditions:
+- UAT execution fails critical scenarios.
+- Rollback procedures are untested.
+next_workflows:
+- delivery.yaml

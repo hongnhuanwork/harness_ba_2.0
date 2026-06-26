@@ -1,0 +1,35 @@
+name: Generate Web Prototype
+description: Orchestrates web wireframing, responsive grid layouts, and high-fidelity
+  mockups.
+category: Prototype
+phase: Design
+objective: Deliver premium responsive web UI designs.
+prerequisites:
+- Low-fidelity wireframe approved
+inputs:
+- Approved Wireframes
+- Web layouts specifications
+outputs:
+- output/phase-4-design/web-prototype-assets.md
+steps:
+- skill: prototype/generate-wireframe
+  description: Refine wireframes for grid layout.
+- skill: prototype/generate-web-ui
+  description: Apply CSS grid layouts and design variables.
+- skill: prototype/generate-screen-flow
+  description: Connect screen sequence maps.
+- approval: Frontend Tech Lead
+  checklist:
+  - Web pages are responsive (desktop and tablet).
+  - Color contrast meets accessibility targets.
+success_criteria:
+- Web mockups are high-fidelity and approved.
+- Click transition pathways are mapped.
+human_review:
+  required: true
+  checkpoints:
+  - Review responsive layouts on desktop and mobile viewports.
+failure_conditions:
+- Layout grid fails scaling checks.
+next_workflows:
+- validation.yaml

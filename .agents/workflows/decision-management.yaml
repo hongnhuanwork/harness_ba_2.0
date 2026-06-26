@@ -1,0 +1,33 @@
+name: Decision Management
+description: Standardizes tracking, updates, and reviews of assumptions, decisions,
+  and risk registers.
+category: Governance
+phase: Discovery
+objective: Maintain an up-to-date and consistent DARL memory register.
+prerequisites:
+- Workspace is initialized
+inputs:
+- Decisions, Risks, Assumptions registries
+outputs:
+- Updated memory logs
+steps:
+- skill: discovery/discover-assumptions
+  description: Review and validate assumptions, checking for changes.
+- skill: discovery/discover-risks
+  description: Re-calculate risk scores and update heat map.
+- decision: Has a critical assumption been invalidated or risk score exceeded threshold?
+  options:
+  - option: 'Yes'
+    next_step: Draft change request and notify PO
+  - option: 'No'
+    next_step: Update registries on disk
+success_criteria:
+- All assumptions have active owners and validation actions.
+- High risks have mitigation plans.
+human_review:
+  required: false
+  checkpoints: []
+failure_conditions:
+- Risks or assumptions are unowned.
+next_workflows:
+- change-request.yaml

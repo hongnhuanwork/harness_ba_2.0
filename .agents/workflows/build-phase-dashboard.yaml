@@ -1,0 +1,29 @@
+name: Build Phase Dashboard
+description: Maintains phase status dashboards, tracing complete, pending, and active
+  outputs.
+category: Portal
+phase: Discovery
+objective: Provide visual progress tracking for overall project health and phase gating.
+prerequisites:
+- Project Portal is initialized
+inputs:
+- Output folders list
+- Project milestones status
+outputs:
+- portal/phase-dashboard.html
+steps:
+- skill: portal/build-phase-dashboard
+  description: Generate dashboard visualization and checklist statuses.
+- approval: Scrum Master
+  checklist:
+  - Progress trackers match active sprint board numbers.
+success_criteria:
+- Phase dashboard represents accurate completion state.
+- Checking links does not result in errors.
+human_review:
+  required: false
+  checkpoints: []
+failure_conditions:
+- Output folders status cannot be parsed.
+next_workflows:
+- build-traceability-dashboard.yaml

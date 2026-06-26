@@ -1,0 +1,38 @@
+name: Change Request
+description: Processes change requests, analyzing impacts on scope, cost, and timelines.
+category: Governance
+phase: Analysis
+objective: Evaluate and document scope change requests, ensuring formal approval logic.
+prerequisites:
+- Requirements baseline is locked
+inputs:
+- Change Request Form
+- Baseline specifications
+outputs:
+- output/phase-3-analysis/change-impact-report.md
+steps:
+- skill: analysis/analyze-impacts
+  description: Determine downstream impact on integrations and databases.
+- skill: analysis/analyze-scope
+  description: Compare change against baseline scope boundaries.
+- decision: Is the change within scope boundaries?
+  options:
+  - option: Yes (Simple change)
+    next_step: Update backlog directly
+  - option: No (Major shift)
+    next_step: Request Steering Committee approval
+- approval: Change Control Board (CCB)
+  checklist:
+  - Budget adjustments are approved.
+  - Timeline extension is validated.
+success_criteria:
+- Change Impact Report is generated.
+- Backlog is updated or change is officially rejected and logged.
+human_review:
+  required: true
+  checkpoints:
+  - Confirm that cost/timeline impacts are acceptable before implementing change.
+failure_conditions:
+- Impact assessment reveals unacceptable regression risks.
+next_workflows:
+- refresh-project-context.yaml

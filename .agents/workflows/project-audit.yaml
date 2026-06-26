@@ -1,0 +1,41 @@
+name: Project Audit
+description: Conduct formal audit of system requirements against legal, security,
+  and quality gates.
+category: Foundation
+phase: Validation
+objective: Generate formal compliance and quality assurance clearance certificates.
+prerequisites:
+- All functional and non-functional specifications are baselined
+- Data models and contracts are completed
+inputs:
+- Software Requirements Specification (SRS)
+- System Data Dictionary
+- Regulatory compliance templates
+outputs:
+- output/phase-5-validation/formal-audit-certificate.md
+steps:
+- skill: validation/validate-traceability
+  description: Perform full traceability audit from legal citation to test case.
+- skill: analysis/analyze-compliance
+  description: Deep audit of data privacy controls, consent, and logging designs.
+- decision: Audit findings have high-severity failures?
+  options:
+  - option: 'Yes'
+    next_step: Refuse clearance, issue risk mitigation tasks
+  - option: 'No'
+    next_step: Compile Audit Certificate
+- approval: Lead Compliance Officer
+  checklist:
+  - Data storage matches regional hosting regulations.
+  - Consent flows conform to GDPR/CCPA standards.
+success_criteria:
+- Audit Certificate is completed and signed off.
+- Zero high-risk compliance exceptions are open.
+human_review:
+  required: true
+  checkpoints:
+  - Review regulatory mappings before signing off the audit sheet.
+failure_conditions:
+- Key encryption protocols or data structures are undocumented.
+next_workflows:
+- prepare-release.yaml

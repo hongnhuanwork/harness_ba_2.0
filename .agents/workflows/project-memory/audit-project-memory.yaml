@@ -1,0 +1,30 @@
+name: Audit Project Memory Workflow
+description: Runs audits to detect file desyncs, expired assumptions, or untracked
+  risks.
+category: Governance
+phase: Validation
+objective: Perform verification checks across memory registries.
+prerequisites:
+- All memory files exist
+inputs:
+- All project memory registers
+outputs:
+- output/phase-5-validation/project-memory-audit-report.md
+steps:
+- skill: project-memory/audit-project-memory
+  description: Audit sync status and check validation timelines.
+- decision: Are there expired assumptions or untracked risks?
+  options:
+  - option: 'Yes'
+    next_step: Generate Audit Report with warnings, alert PM
+  - option: 'No'
+    next_step: Generate clean Audit Report
+success_criteria:
+- Audit report is generated and archived in output directory.
+human_review:
+  required: true
+  checkpoints:
+  - Verify updates conform to project-memory-rule.md before baselining.
+failure_conditions:
+- Files are missing or unparseable.
+next_workflows: []

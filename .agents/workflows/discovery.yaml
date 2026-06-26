@@ -1,0 +1,55 @@
+name: Discovery Workflow
+description: Orchestrates the entire Discovery Phase, mapping stakeholders, goals,
+  processes, and risks.
+category: Lifecycle
+phase: Discovery
+objective: Complete all discovery activities, establishing project boundaries, goals,
+  and As-Is baseline maps.
+prerequisites:
+- Initialize Project workflow completed
+inputs:
+- Project Profile
+- Stakeholder briefing docs
+outputs:
+- output/phase-1-discovery/discovery-report-v1.0.md
+steps:
+- skill: discovery/discover-stakeholders
+  description: Profile and catalog key project stakeholders.
+- skill: discovery/discover-business-goals
+  description: Define SMART goals and KPIs.
+- skill: discovery/discover-scope
+  description: Document scope boundaries and exclusions.
+- skill: discovery/discover-business-processes
+  description: Map legacy As-Is workflows.
+- skill: discovery/discover-pain-points
+  description: Analyze process bottlenecks and user issues.
+- skill: discovery/discover-opportunities
+  description: Map optimization and feature opportunities.
+- skill: discovery/discover-constraints
+  description: Compile technical and regulatory limitations.
+- skill: discovery/discover-risks
+  description: Log project risks and calculate risk scores.
+- skill: discovery/discover-assumptions
+  description: Detail critical planning assumptions.
+- skill: discovery/discover-dependencies
+  description: Map sequence paths and external links.
+- skill: discovery/discover-kpis
+  description: Establish target metrics for success.
+- skill: discovery/discover-current-state
+  description: Document technical architecture and data baseline.
+- approval: Steering Committee
+  checklist:
+  - As-Is flows accurately match manual behaviors.
+  - Constraints Register lists all legal risks.
+success_criteria:
+- Discovery Report is signed off by stakeholders.
+- Baseline project scope is accepted.
+human_review:
+  required: true
+  checkpoints:
+  - Review scope and As-Is flows prior to requirements elicitation.
+failure_conditions:
+- As-Is workflows are inconsistent.
+- Conflict on project goals cannot be resolved.
+next_workflows:
+- elicitation.yaml

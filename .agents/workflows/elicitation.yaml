@@ -1,0 +1,58 @@
+name: Elicitation Workflow
+description: Orchestrates requirements elicitation sessions, stakeholder inputs, and
+  raw capability logging.
+category: Lifecycle
+phase: Elicitation
+objective: Collect and structure all functional, non-functional, security, and integration
+  requirements.
+prerequisites:
+- Discovery Workflow signed off
+inputs:
+- Discovery Report
+- Stakeholder Interview Notes
+outputs:
+- output/phase-2-elicitation/elicited-requirements-log.md
+- output/phase-2-elicitation/business-rules-catalog.md
+steps:
+- skill: elicitation/elicit-requirements
+  description: Extract raw needs from interviews and briefs.
+- skill: elicitation/elicit-functional-requirements
+  description: Document functional capabilities and system actions.
+- skill: elicitation/elicit-non-functional-requirements
+  description: Detail performance, security, and scaling needs.
+- skill: elicitation/elicit-business-rules
+  description: Log formulas, constraints, and operational policies.
+- skill: elicitation/elicit-user-needs
+  description: Map user tasks and persona expectations.
+- skill: elicitation/elicit-stakeholder-expectations
+  description: Identify success thresholds for sponsors.
+- skill: elicitation/elicit-data-requirements
+  description: Document data schemas, volumes, and retention guidelines.
+- skill: elicitation/elicit-integration-requirements
+  description: Detail API sync frequencies and protocols.
+- skill: elicitation/elicit-reporting-requirements
+  description: Define dashboard layouts, data ranges, and targets.
+- skill: elicitation/elicit-compliance-requirements
+  description: Log GDPR, PCI, and security policies required.
+- decision: Are elicitation requirements complete?
+  options:
+  - option: 'Yes'
+    next_step: Proceed to Elicitation Signoff
+  - option: 'No'
+    next_step: elicitation/elicit-requirements
+- approval: Product Owner
+  checklist:
+  - All user personas have associated requirements mapped.
+  - Non-functional metrics contain measurable limits.
+success_criteria:
+- Requirements log is fully populated with no orphan requests.
+- Business Rules Catalog maps to SOW policies.
+human_review:
+  required: true
+  checkpoints:
+  - Review raw requirements backlog prior to commencing Analysis Phase.
+failure_conditions:
+- Lack of stakeholder engagement in elicitation sessions.
+- Contradicting requirements cannot be aligned.
+next_workflows:
+- analysis.yaml

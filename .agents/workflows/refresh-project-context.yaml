@@ -1,0 +1,40 @@
+name: Refresh Project Context
+description: Updates active workspace directories with newly uploaded PMO assets or
+  changes.
+category: Foundation
+phase: Discovery
+objective: Synchronize project memory logs with external updates, resolving any conflict.
+prerequisites:
+- Workspace is initialized
+- New context files are uploaded to project_resources/
+inputs:
+- Updated SOW or client brief
+- New stakeholder list
+outputs:
+- Updated Project Profile and registers
+steps:
+- skill: project/collect-project-documents
+  description: Identify and scan changed files in `project_resources/`.
+- skill: project/collect-project-context
+  description: Analyze structural differences between old and new files.
+- decision: Are there conflicting goals or assumptions?
+  options:
+  - option: 'Yes'
+    next_step: Escalate to human-in-the-loop for decision
+  - option: 'No'
+    next_step: Update Project Profile and refresh metadata
+- approval: Product Owner
+  checklist:
+  - Scope adjustments align with initial roadmap goals.
+  - Assumptions list is accurate.
+success_criteria:
+- Project Profile is updated with a new version number.
+- No conflicting assumptions or scope boundaries remain.
+human_review:
+  required: true
+  checkpoints:
+  - Verify scope updates before propagating changes to active backlogs.
+failure_conditions:
+- Uploaded files contain corrupted formats or contradict baseline charter values.
+next_workflows:
+- change-request.yaml

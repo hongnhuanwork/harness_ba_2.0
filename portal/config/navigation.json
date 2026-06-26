@@ -1,0 +1,72 @@
+[
+  {
+    "id": "dashboard",
+    "title": "Dashboard",
+    "icon": "dashboard",
+    "type": "link",
+    "route": "#/dashboard"
+  },
+  {
+    "id": "discovery",
+    "title": "Discovery",
+    "icon": "search",
+    "type": "folder",
+    "path": "output/phase-1-discovery"
+  },
+  {
+    "id": "elicitation",
+    "title": "Elicitation",
+    "icon": "chat",
+    "type": "folder",
+    "path": "output/phase-2-elicitation"
+  },
+  {
+    "id": "analysis",
+    "title": "Analysis",
+    "icon": "analytics",
+    "type": "folder",
+    "path": "output/phase-3-analysis"
+  },
+  {
+    "id": "design",
+    "title": "Design",
+    "icon": "architecture",
+    "type": "folder",
+    "path": "output/phase-4-design"
+  },
+  {
+    "id": "validation",
+    "title": "Validation",
+    "icon": "verified",
+    "type": "folder",
+    "path": "output/phase-5-validation"
+  },
+  {
+    "id": "delivery",
+    "title": "Delivery",
+    "icon": "send",
+    "type": "folder",
+    "path": "output/phase-6-delivery"
+  },
+  {
+    "id": "project-memory",
+    "title": "Project Memory",
+    "icon": "memory",
+    "type": "folder",
+    "path": "project_resources/00-project-memory"
+  },
+  {
+    "id": "knowledge",
+    "title": "Knowledge Base",
+    "icon": "menu_book",
+    "type": "folder",
+    "path": "knowledge"
+  },
+  {
+    "id": "resources",
+    "title": "Project Resources",
+    "icon": "folder_shared",
+    "type": "folder",
+    "path": "project_resources"
+  }
+]

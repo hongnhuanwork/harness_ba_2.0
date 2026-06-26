@@ -1,0 +1,38 @@
+name: Approval Gate
+description: Coordinates formal stakeholder voting and approvals on documentation
+  baselines.
+category: Governance
+phase: Validation
+objective: Achieve formal sign-off and baseline lock for project phases.
+prerequisites:
+- Review package completes with no outstanding critical comments
+inputs:
+- Reviewed requirements package
+- Traceability matrix
+outputs:
+- output/phase-5-validation/phase-signoff-approval.md
+steps:
+- skill: validation/validate-requirements
+  description: Audit requirements mapping with business leads.
+- skill: validation/validate-stakeholder-alignment
+  description: Review and document alignment on scope and timeline.
+- decision: Do all primary stakeholders approve?
+  options:
+  - option: 'Yes'
+    next_step: Generate Signoff Certificate and lock baseline
+  - option: 'No'
+    next_step: Reject, create change list
+- approval: Sponsors and Product Owner
+  checklist:
+  - Requirements meet business objectives.
+  - Commitment to scope and timeline limits.
+success_criteria:
+- Approval document is signed and saved.
+- Workspace baseline tag is updated.
+human_review:
+  required: true
+  checkpoints:
+  - Formal sign-off requires user confirmation in chat.
+failure_conditions:
+- Critical stakeholder rejects requirements.
+next_workflows: []

@@ -1,0 +1,55 @@
+name: Design Workflow
+description: Orchestrates logical solution design, screen transition mapping, and
+  API/Data modeling.
+category: Lifecycle
+phase: Design
+objective: Generate logical blueprints and user stories ready for frontend prototyping
+  and coding.
+prerequisites:
+- Analysis Workflow completed and signed off
+inputs:
+- Prioritized Backlog
+- Gap Analysis Report
+outputs:
+- output/phase-4-design/solution-design.md
+- output/phase-4-design/data-dictionary.md
+- output/phase-4-design/user-stories-backlog.md
+steps:
+- skill: design/design-solution
+  description: Create high-level architecture context diagram.
+- skill: design/design-to-be-process
+  description: Map optimized To-Be workflows.
+- skill: design/design-use-cases
+  description: Detail system use case interactions and alternate flows.
+- skill: design/design-user-stories
+  description: Break down capabilities into developer stories.
+- skill: design/design-acceptance-criteria
+  description: Format acceptance criteria in Gherkin syntax.
+- skill: design/design-data-model
+  description: Design logical data structures and ERD diagrams.
+- skill: design/design-api-contracts
+  description: Detail REST API OpenAPI contracts.
+- skill: design/design-navigation-flow
+  description: Structure user site menus and role permissions.
+- skill: design/design-screen-flow
+  description: Create screen transition logic.
+- skill: design/design-system-interactions
+  description: Build Mermaid sequence diagrams.
+- approval: Lead Developer & Product Designer
+  checklist:
+  - User stories meet the Definition of Ready (DoR).
+  - Data models support all use case execution flows.
+success_criteria:
+- All functional requirements trace to a user story and design.
+- API contracts pass syntax validation.
+- To-Be process workflows are completed.
+human_review:
+  required: true
+  checkpoints:
+  - Review user stories and Gherkin acceptance criteria before UI prototyping.
+failure_conditions:
+- Solution design contains incompatible technical protocols.
+- User stories fail the DoR audit.
+next_workflows:
+- generate-prototype.yaml
+- validation.yaml

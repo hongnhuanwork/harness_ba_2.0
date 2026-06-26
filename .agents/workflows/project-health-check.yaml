@@ -1,0 +1,44 @@
+name: Project Health Check
+description: Performs routine verification of backlog state, requirement coverage,
+  and testing status.
+category: Foundation
+phase: Validation
+objective: Verify overall project documentation health and compliance status prior
+  to sprint reviews.
+prerequisites:
+- Requirement baseline is established
+- Backlog is populated
+inputs:
+- Requirements Traceability Matrix (RTM)
+- Sprint backlog summary
+outputs:
+- output/phase-5-validation/project-health-report.md
+steps:
+- skill: validation/validate-requirements
+  description: Check if requirements conform to standard template specifications.
+- skill: validation/validate-traceability
+  description: Run traceability gap checks across objectives, design, and QA.
+- skill: review/review-release-readiness
+  description: Evaluate support documentation readiness and backlog status.
+- decision: Are there critical documentation gaps?
+  options:
+  - option: Yes (Gap Score > 20%)
+    next_step: Flag issues and schedule refresh-context
+  - option: 'No'
+    next_step: Generate Project Health Report
+- approval: Scrum Master
+  checklist:
+  - Documentation gaps are under the 20% limit.
+  - Health Report is saved in the output directory.
+success_criteria:
+- Health Check Report is generated and archived.
+- Traceability gaps are mapped and less than 5%.
+human_review:
+  required: true
+  checkpoints:
+  - Shared with Scrum Master during sprint retrospective.
+  - Verify backlog completeness and tracing rules compliance.
+failure_conditions:
+- Traceability matrix is missing or corrupted.
+next_workflows:
+- refresh-project-context.yaml

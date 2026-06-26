@@ -1,0 +1,33 @@
+name: Build Traceability Dashboard
+description: Generates a documentation tracking interface showing requirements tracing
+  mapping.
+category: Portal
+phase: Analysis
+objective: Visualize RTM metrics and flag documentation gaps.
+prerequisites:
+- RTM is created
+inputs:
+- Requirements Traceability Matrix (RTM)
+- Docs index
+outputs:
+- portal/traceability-dashboard.html
+steps:
+- skill: documentation/generate-traceability-matrix
+  description: Ensure RTM is fully populated on disk.
+- skill: portal/build-documentation-portal
+  description: Format and output RTM mapping visualization.
+- decision: Are there untraced requirements?
+  options:
+  - option: 'Yes'
+    next_step: Highlight in red on dashboard, trigger alert
+  - option: 'No'
+    next_step: Display complete status
+success_criteria:
+- Dashboard renders traceability graphs.
+- Gaps are highlighted and list owner contacts.
+human_review:
+  required: false
+  checkpoints: []
+failure_conditions:
+- RTM is empty or missing format structure.
+next_workflows: []

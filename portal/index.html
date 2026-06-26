@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BA Workspace Portal</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Libraries via CDN -->
+  <!-- Marked.js (GFM Markdown Parser) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Mermaid.js (Diagram Rendering Engine) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    // Initialize Mermaid Configuration
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true }
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="top-bar">
+    <div class="sidebar-header" style="border: none; padding: 0;">
+      <div class="logo-icon">BA</div>
+      <div class="logo-text" style="font-size: 18px;">BA Harness Portal</div>
+    </div>
+    
+    <!-- Floating Search Container -->
+    <div class="search-container">
+      <div class="search-wrapper">
+        <span class="material-icons search-icon">search</span>
+        <input type="text" id="search-input" placeholder="Search workspace files and metadata...">
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+    
+    <div class="header-actions">
+      <!-- Optional Actions or Status Info -->
+    </div>
+  </header>
+
+  <!-- Workspace Layout Container -->
+  <div class="workspace-layout">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+      <nav id="sidebar-nav">
+        <!-- Built dynamically by navigation.js -->
+      </nav>
+    </aside>
+    
+    <!-- Central Content Viewport -->
+    <main id="main-content" class="viewport">
+      <!-- Built dynamically by router.js and markdown-loader.js -->
+    </main>
+    
+    <!-- Right Metadata Panel -->
+    <aside id="meta-sidebar" class="meta-sidebar">
+      <h2 class="meta-title">File Metadata</h2>
+      <div id="meta-panel-content">
+        <!-- Built dynamically by markdown-loader.js -->
+      </div>
+    </aside>
+    
+  </div>
+
+  <!-- SPA Module Entry Point -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

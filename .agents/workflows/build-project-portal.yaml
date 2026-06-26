@@ -1,0 +1,32 @@
+name: Build Project Portal
+description: Creates and maintains the master project portal homepage, connecting
+  resources and phase checklists.
+category: Portal
+phase: Discovery
+objective: Provide a central workspace hub for tracking deliverables and project health.
+prerequisites:
+- Workspace initialized
+inputs:
+- Project profile metadata
+- Deliverables roadmap
+outputs:
+- portal/index.html
+- portal/portal-map.md
+steps:
+- skill: portal/build-project-portal
+  description: Generate portal homepage layout and links.
+- approval: Project Manager
+  checklist:
+  - Portal links connect to correct folder structures.
+  - Homepage lists accurate sponsor contacts.
+success_criteria:
+- Project Portal is published and accessible.
+- All navigation paths are responsive.
+human_review:
+  required: false
+  checkpoints:
+  - Review portal homepage during weekly status syncs.
+failure_conditions:
+- Broken relative links.
+next_workflows:
+- build-phase-dashboard.yaml

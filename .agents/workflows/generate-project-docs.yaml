@@ -1,0 +1,36 @@
+name: Generate Project Docs
+description: Automates generation of BRD, FRD, and SRS files using project templates.
+category: Documents
+phase: Analysis
+objective: Provide complete, baseline specifications for design and development phases.
+prerequisites:
+- Discovery Phase signed off
+inputs:
+- Raw Requirements Log
+- Business Rules Catalog
+outputs:
+- output/phase-2-elicitation/BRD.md
+- output/phase-3-analysis/FRD.md
+- output/phase-3-analysis/SRS.md
+steps:
+- skill: documentation/generate-brd
+  description: Format and generate the Business Requirements Document.
+- skill: documentation/generate-frd
+  description: Format and generate the Functional Requirements Document.
+- skill: documentation/generate-srs
+  description: Consolidate details to generate Software Requirements Spec.
+- approval: Business Analyst Lead
+  checklist:
+  - Formatting rules in documentation-rule.md are met.
+  - Nomenclature matches glossary definitions.
+success_criteria:
+- All three specifications exist on disk.
+- Cross-references between documents match and resolve.
+human_review:
+  required: true
+  checkpoints:
+  - Review SRS NFR targets with Tech Lead before baseline.
+failure_conditions:
+- Required templates are missing from knowledge folder.
+next_workflows:
+- generate-backlog.yaml

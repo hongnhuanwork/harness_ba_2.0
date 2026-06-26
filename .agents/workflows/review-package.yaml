@@ -1,0 +1,35 @@
+name: Review Package
+description: Reviews the complete package of requirements documents (BRD, FRD, SRS)
+  before formal release.
+category: Governance
+phase: Analysis
+objective: Verify consistency, compliance, and quality across all major documentation
+  deliverables.
+prerequisites:
+- Draft documents are created
+inputs:
+- Draft BRD, FRD, SRS
+outputs:
+- output/phase-3-analysis/review-comments-log.md
+steps:
+- skill: review/review-brd
+  description: Audit BRD against template and rules.
+- skill: review/review-frd
+  description: Audit FRD mapping and design schemas.
+- skill: review/review-srs
+  description: Audit SRS constraints and compliance.
+- approval: Lead Business Analyst
+  checklist:
+  - Contradictions between documents are resolved.
+  - Review findings are logged.
+success_criteria:
+- All three specifications are reviewed.
+- Feedback log is generated and shared.
+human_review:
+  required: true
+  checkpoints:
+  - PO reviews outstanding comments before updating drafts.
+failure_conditions:
+- Draft files are missing.
+next_workflows:
+- approval-gate.yaml

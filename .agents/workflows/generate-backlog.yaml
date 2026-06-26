@@ -1,0 +1,35 @@
+name: Generate Backlog
+description: Convert functional requirements into developer-ready User Stories and
+  Backlog logs.
+category: Documents
+phase: Design
+objective: Populate the product backlog with ready stories and Gherkin criteria.
+prerequisites:
+- FRD / SRS is baselined
+inputs:
+- Functional specifications
+- Business Rules
+outputs:
+- output/phase-4-design/groomed-backlog.md
+steps:
+- skill: design/design-user-stories
+  description: Deconstruct requirements into functional User Stories.
+- skill: design/design-acceptance-criteria
+  description: Draft Gherkin scenarios for each story.
+- skill: documentation/generate-user-story
+  description: Generate individual story files inside backlog directory.
+- approval: Scrum Master & PO
+  checklist:
+  - Stories meet the Definition of Ready.
+  - Acceptance criteria are binary.
+success_criteria:
+- Backlog is exported to a groomed list.
+- Stories include complexity estimation tags.
+human_review:
+  required: true
+  checkpoints:
+  - Validate Gherkin syntax with Lead QA.
+failure_conditions:
+- Requirements are too vague to be broken into stories.
+next_workflows:
+- prepare-uat.yaml

@@ -1,0 +1,391 @@
+{
+  "output": [
+    {
+      "path": "output/README.md",
+      "name": "README.md",
+      "title": "README.md",
+      "metadata": {},
+      "sizeBytes": 1995
+    }
+  ],
+  "project_resources": [
+    {
+      "path": "project_resources/00-project-memory/assumptions.md",
+      "name": "assumptions.md",
+      "title": "Assumptions Registry",
+      "metadata": {
+        "Project ID": "PRJ-001",
+        "Status": "Active",
+        "Last Updated": "2026-06-25"
+      },
+      "sizeBytes": 386
+    },
+    {
+      "path": "project_resources/00-project-memory/decisions.md",
+      "name": "decisions.md",
+      "title": "Decisions Registry (ADR Log)",
+      "metadata": {
+        "Project ID": "PRJ-001",
+        "Last Updated": "2026-06-25"
+      },
+      "sizeBytes": 532
+    },
+    {
+      "path": "project_resources/00-project-memory/lessons-learned.md",
+      "name": "lessons-learned.md",
+      "title": "Lessons Learned Registry",
+      "metadata": {
+        "Project ID": "PRJ-001",
+        "Last Updated": "2026-06-25"
+      },
+      "sizeBytes": 387
+    },
+    {
+      "path": "project_resources/00-project-memory/memory.md",
+      "name": "memory.md",
+      "title": "Project Memory",
+      "metadata": {
+        "Project ID": "PRJ-001",
+        "Project Name": "Generic BA Harness Project",
+        "Status": "Initialized",
+        "Version": "1.0",
+        "Last Updated": "2026-06-25",
+        "Timeline": "Target delivery within active sprint cycle.",
+        "Technology": "Must use Markdown for documents and YAML for workflows.",
+        "Compliance": "Must enforce mandatory human review gates."
+      },
+      "sizeBytes": 1617
+    },
+    {
+      "path": "project_resources/00-project-memory/risks.md",
+      "name": "risks.md",
+      "title": "Risks Registry",
+      "metadata": {
+        "Project ID": "PRJ-001",
+        "Last Updated": "2026-06-25"
+      },
+      "sizeBytes": 328
+    },
+    {
+      "path": "project_resources/01-pmo/project-assumptions.md",
+      "name": "project-assumptions.md",
+      "title": "project-assumptions.md",
+      "metadata": {},
+      "sizeBytes": 0
+    },
+    {
+      "path": "project_resources/01-pmo/project-constraints.md",
+      "name": "project-constraints.md",
+      "title": "project-constraints.md",
+      "metadata": {},
+      "sizeBytes": 0
+    },
+    {
+      "path": "project_resources/01-pmo/project-profile.md",
+      "name": "project-profile.md",
+      "title": "project-profile.md",
+      "metadata": {},
+      "sizeBytes": 0
+    },
+    {
+      "path": "project_resources/01-pmo/scope-definition.md",
+      "name": "scope-definition.md",
+      "title": "scope-definition.md",
+      "metadata": {},
+      "sizeBytes": 0
+    },
+    {
+      "path": "project_resources/01-pmo/stakeholder-register.md",
+      "name": "stakeholder-register.md",
+      "title": "stakeholder-register.md",
+      "metadata": {},
+      "sizeBytes": 0
+    },
+    {
+      "path": "project_resources/README.md",
+      "name": "README.md",
+      "title": "README.md",
+      "metadata": {},
+      "sizeBytes": 2532
+    }
+  ],
+  "knowledge": [
+    {
+      "path": "knowledge/library/babok_raw.md",
+      "name": "babok_raw.md",
+      "title": "Risk Event or",
+      "metadata": {},
+      "sizeBytes": 2288786
+    },
+    {
+      "path": "knowledge/templates/assumptions-template.md",
+      "name": "assumptions-template.md",
+      "title": "Assumptions Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Last Updated": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1022
+    },
+    {
+      "path": "knowledge/templates/brd-template.md",
+      "name": "brd-template.md",
+      "title": "Business Requirements Document (BRD) Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Document Title": "Business Requirements Document",
+        "Status": "[Draft/Approved/Baselined]",
+        "Version": "[X.Y]",
+        "Author": "[Name]",
+        "Date": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1283
+    },
+    {
+      "path": "knowledge/templates/data-dictionary-template.md",
+      "name": "data-dictionary-template.md",
+      "title": "Data Dictionary Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Database Name": "[Name]",
+        "Last Updated": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1011
+    },
+    {
+      "path": "knowledge/templates/decision-record-template.md",
+      "name": "decision-record-template.md",
+      "title": "Architecture Decision Record (ADR) Template",
+      "metadata": {
+        "Decision ID": "[DEC-01]",
+        "Title": "[Decision Name]",
+        "Status": "[Proposed/Accepted/Superseded/Rejected]",
+        "Owner": "[Name]",
+        "Date": "[YYYY-MM-DD]",
+        "Option A": "[Description, pros, cons]",
+        "Option B": "[Description, pros, cons]"
+      },
+      "sizeBytes": 1213
+    },
+    {
+      "path": "knowledge/templates/deployment-checklist-template.md",
+      "name": "deployment-checklist-template.md",
+      "title": "Deployment Checklist Template",
+      "metadata": {
+        "Release Version": "[vX.Y.Z]",
+        "Deployment Date": "[YYYY-MM-DD]",
+        "Deployment Lead": "[Name]",
+        "Environment": "[Production]"
+      },
+      "sizeBytes": 1422
+    },
+    {
+      "path": "knowledge/templates/epic-template.md",
+      "name": "epic-template.md",
+      "title": "Epic Template",
+      "metadata": {
+        "Epic ID": "[EP-01]",
+        "Title": "[Epic Name]",
+        "Epic Owner": "[Name]",
+        "Status": "[Backlog/Active/Completed]"
+      },
+      "sizeBytes": 930
+    },
+    {
+      "path": "knowledge/templates/frd-template.md",
+      "name": "frd-template.md",
+      "title": "Functional Requirements Document (FRD) Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Document Title": "Functional Requirements Document",
+        "Status": "[Draft/Approved/Baselined]",
+        "Version": "[X.Y]",
+        "Author": "[Name]",
+        "Date": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1321
+    },
+    {
+      "path": "knowledge/templates/meeting-minutes-template.md",
+      "name": "meeting-minutes-template.md",
+      "title": "Meeting Minutes Template",
+      "metadata": {
+        "Date": "[YYYY-MM-DD]",
+        "Time": "[HH:MM]",
+        "Meeting Title": "[Title]",
+        "Facilitator": "[Name]",
+        "Attendees": "[Names]",
+        "Absentees": "[Names]",
+        "Decision 1": "[Details, links to ADR if created]"
+      },
+      "sizeBytes": 1061
+    },
+    {
+      "path": "knowledge/templates/project-profile-template.md",
+      "name": "project-profile-template.md",
+      "title": "Project Profile Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Project Name": "[Name]",
+        "Executive Sponsor": "[Name / Department]",
+        "Project Manager": "[Name]",
+        "Lead Business Analyst": "[Name]",
+        "Status": "[Draft/Approved/Baselined]",
+        "Version": "[X.Y]",
+        "Last Updated": "[YYYY-MM-DD]",
+        "Objective 1": "[Specific, measurable business goal]",
+        "Objective 2": "[KPI linked target]"
+      },
+      "sizeBytes": 1632
+    },
+    {
+      "path": "knowledge/templates/release-note-template.md",
+      "name": "release-note-template.md",
+      "title": "Release Note Template",
+      "metadata": {
+        "Release Version": "[vX.Y.Z]",
+        "Release Date": "[YYYY-MM-DD]",
+        "Environment": "[Production/Staging]",
+        "Author": "[Name]"
+      },
+      "sizeBytes": 1038
+    },
+    {
+      "path": "knowledge/templates/risk-register-template.md",
+      "name": "risk-register-template.md",
+      "title": "Risk Register Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Register Owner": "[Name]",
+        "Last Updated": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1154
+    },
+    {
+      "path": "knowledge/templates/scope-definition-template.md",
+      "name": "scope-definition-template.md",
+      "title": "Scope Definition Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Status": "[Draft/Approved/Baselined]",
+        "Last Updated": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1065
+    },
+    {
+      "path": "knowledge/templates/srs-template.md",
+      "name": "srs-template.md",
+      "title": "Software Requirements Specification (SRS) Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Document Title": "Software Requirements Specification",
+        "Status": "[Draft/Approved/Baselined]",
+        "Version": "[X.Y]",
+        "Author": "[Name]",
+        "Date": "[YYYY-MM-DD]",
+        "Performance": "[e.g. response times, CPU limits]",
+        "Scalability": "[e.g. concurrent users growth]",
+        "Security": "[e.g. authentication, authorization, scopes]",
+        "Reliability": "[e.g. SLA percentage, MTBF]"
+      },
+      "sizeBytes": 1372
+    },
+    {
+      "path": "knowledge/templates/stakeholder-register-template.md",
+      "name": "stakeholder-register-template.md",
+      "title": "Stakeholder Register Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Document Owner": "[Name]",
+        "Last Updated": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1196
+    },
+    {
+      "path": "knowledge/templates/test-case-template.md",
+      "name": "test-case-template.md",
+      "title": "Test Case Template",
+      "metadata": {
+        "Test Case ID": "[TC-01]",
+        "Test Scenario Link": "[TS-01]",
+        "Associated Requirement": "[US-01]",
+        "Priority": "[High/Medium/Low]",
+        "Execution Type": "[Manual/Automated]"
+      },
+      "sizeBytes": 1300
+    },
+    {
+      "path": "knowledge/templates/test-scenario-template.md",
+      "name": "test-scenario-template.md",
+      "title": "Test Scenario Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Document Owner": "[Name]",
+        "Last Updated": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 905
+    },
+    {
+      "path": "knowledge/templates/traceability-matrix-template.md",
+      "name": "traceability-matrix-template.md",
+      "title": "Requirements Traceability Matrix (RTM) Template",
+      "metadata": {
+        "Project ID": "[ID]",
+        "Matrix Owner": "[Name]",
+        "Last Updated": "[YYYY-MM-DD]",
+        "Total Requirements": "[Count]",
+        "Fully Traced Requirements": "[Percentage]",
+        "Design Gaps": "[Count]",
+        "Test Gaps": "[Count]"
+      },
+      "sizeBytes": 1035
+    },
+    {
+      "path": "knowledge/templates/uat-script-template.md",
+      "name": "uat-script-template.md",
+      "title": "UAT Script Template",
+      "metadata": {
+        "UAT ID": "[UAT-01]",
+        "Associated Feature": "[Epic Name]",
+        "Tester Name": "[Name]",
+        "Date Executed": "[YYYY-MM-DD]"
+      },
+      "sizeBytes": 1193
+    },
+    {
+      "path": "knowledge/templates/ui-portal-template.md",
+      "name": "ui-portal-template.md",
+      "title": "UI Portal Source Code Template",
+      "metadata": {},
+      "sizeBytes": 18183
+    },
+    {
+      "path": "knowledge/templates/use-case-template.md",
+      "name": "use-case-template.md",
+      "title": "Use Case Template",
+      "metadata": {
+        "Use Case ID": "[UC-01]",
+        "Title": "[Use Case Name]",
+        "Primary Actor": "[Persona/System]",
+        "Status": "[Draft/Approved]",
+        "Preconditions": "[System states required to initiate]",
+        "Postconditions": "[Final system states after success/failure]",
+        "Alternative Flow A": "[Condition -> Steps]",
+        "Exception Flow B": "[Error Condition -> System Message -> Exit]"
+      },
+      "sizeBytes": 1166
+    },
+    {
+      "path": "knowledge/templates/user-story-template.md",
+      "name": "user-story-template.md",
+      "title": "User Story Template",
+      "metadata": {
+        "Story ID": "[US-01]",
+        "Epic Link": "[EP-01]",
+        "Priority": "[High/Medium/Low]",
+        "Story Points": "[Points]"
+      },
+      "sizeBytes": 1153
+    }
+  ]
+}

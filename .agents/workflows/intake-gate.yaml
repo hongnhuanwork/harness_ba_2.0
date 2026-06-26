@@ -1,0 +1,28 @@
+name: Intake Gate Workflow
+description: Executes validation of project input, loads reference templates, and executes the elicitation loop.
+category: Foundation
+phase: Discovery
+objective: Ensure all project inputs are complete and validated before running downstream BA workflows.
+prerequisites: []
+inputs:
+  - Raw Project Idea / User Description
+outputs:
+  - Intake Payload JSON
+steps:
+  - skill: intake/validate-intake-gate
+    description: Validate completeness and load context references.
+  - decision: Is input complete and ready?
+    options:
+      - option: "Yes"
+        next_step: Route to initialize-project.yaml workflow
+      - option: "No"
+        next_step: Ask elicitation questions and repeat validation loop
+success_criteria:
+  - Input is validated and structured.
+  - Completeness score is >= 0.8.
+human_review:
+  required: false
+failure_conditions:
+  - User fails to provide necessary project goals or stakeholders after multiple elicitation turns.
+next_workflows:
+  - initialize-project.yaml

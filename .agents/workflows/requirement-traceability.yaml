@@ -1,0 +1,40 @@
+name: Requirement Traceability
+description: Verifies that every requirement traces to business objectives, design
+  elements, and test cases.
+category: Governance
+phase: Design
+objective: Generate and validate RTM completeness.
+prerequisites:
+- Backlog and test cases exist
+inputs:
+- Requirements catalog
+- Designs list
+- Test cases log
+outputs:
+- output/phase-4-design/RTM.md
+steps:
+- skill: documentation/generate-traceability-matrix
+  description: Format and export RTM file.
+- skill: validation/validate-traceability
+  description: Audit RTM, flagging orphan items.
+- decision: Are there untraced requirements?
+  options:
+  - option: 'Yes'
+    next_step: Flag issues and return to design workflow
+  - option: 'No'
+    next_step: Complete RTM baseline
+- approval: Lead Business Analyst
+  checklist:
+  - Traceability Matrix lists all elicitation requirements.
+  - No orphans or unmapped requirements exist without documented justification.
+success_criteria:
+- RTM is fully populated on disk.
+- No requirements are missing goals or test case links.
+human_review:
+  required: true
+  checkpoints:
+  - Verify RTM coverage against SOW goals before proceeding.
+failure_conditions:
+- Requirements catalog is missing.
+next_workflows:
+- project-health-check.yaml

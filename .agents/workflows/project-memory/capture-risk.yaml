@@ -1,0 +1,37 @@
+name: Capture Risk Workflow
+description: Sequences the identification, scoring, and mitigation logging of risks.
+category: Governance
+phase: Discovery
+objective: Identify and log risks with mitigation strategies.
+prerequisites:
+- Workspace initialized
+inputs:
+- Risk input text
+outputs:
+- project_resources/00-project-memory/risks.md
+- project_resources/00-project-memory/memory.md
+steps:
+- skill: project-memory/capture-risk
+  description: Calculate risk score and define mitigation plan.
+- decision: Is the Risk Score greater than 12 (Critical)?
+  options:
+  - option: 'Yes'
+    next_step: Require immediate mitigation plan and alert Scrum Master
+  - option: 'No'
+    next_step: Log risk and proceed to approval
+- approval: Scrum Master / PM
+  checklist:
+  - Risk probability and impact values are objective.
+  - Mitigation tasks are assigned to active owners.
+- skill: project-memory/update-project-memory
+  description: Refreshes active risks in memory.md.
+success_criteria:
+- Risk is logged in risks.md and memory.md active list is refreshed.
+human_review:
+  required: true
+  checkpoints:
+  - Verify updates conform to project-memory-rule.md before baselining.
+failure_conditions:
+- Mitigation owner is not defined for a critical risk.
+next_workflows:
+- update-project-memory.yaml

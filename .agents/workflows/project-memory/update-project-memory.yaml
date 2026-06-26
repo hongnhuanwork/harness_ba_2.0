@@ -1,0 +1,29 @@
+name: Update Project Memory Workflow
+description: Orchestrates synchronization between supporting logs and the central
+  memory.md document.
+category: Governance
+phase: Discovery
+objective: Synchronize memory.md to act as the single source of truth.
+prerequisites:
+- Supporting log has been updated
+inputs:
+- All project memory registers
+outputs:
+- project_resources/00-project-memory/memory.md
+steps:
+- skill: project-memory/update-project-memory
+  description: Aggregate active items and refresh memory.md.
+- approval: Project Manager
+  checklist:
+  - Memory.md structure is complete.
+  - Superseded or closed items are excluded from active list.
+success_criteria:
+- Memory.md is updated, verified, and saved to disk.
+human_review:
+  required: true
+  checkpoints:
+  - Verify updates conform to project-memory-rule.md before baselining.
+failure_conditions:
+- Synchronization script encounters parsing or schema errors.
+next_workflows:
+- audit-project-memory.yaml

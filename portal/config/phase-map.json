@@ -1,0 +1,38 @@
+[
+  {
+    "phase": "Discovery",
+    "folder": "output/phase-1-discovery",
+    "description": "Establish baseline scope, identify stakeholders, evaluate pain points, and define high-level business goals.",
+    "status": "Completed"
+  },
+  {
+    "phase": "Elicitation",
+    "folder": "output/phase-2-elicitation",
+    "description": "Elicit functional, non-functional, reporting, data, and compliance requirements from business users.",
+    "status": "In Progress"
+  },
+  {
+    "phase": "Analysis",
+    "folder": "output/phase-3-analysis",
+    "description": "Analyze, groom, model, and prioritize requirements, checking for compliance, gaps, and feasibility.",
+    "status": "Planned"
+  },
+  {
+    "phase": "Design",
+    "folder": "output/phase-4-design",
+    "description": "Design database schemas, logical architectures, REST API contracts, and user screen transition flows.",
+    "status": "Planned"
+  },
+  {
+    "phase": "Validation",
+    "folder": "output/phase-5-validation",
+    "description": "Audit testing coverage, track UAT progress, verify trace matrix, and run release readiness gates.",
+    "status": "Planned"
+  },
+  {
+    "phase": "Delivery",
+    "folder": "output/phase-6-delivery",
+    "description": "Package production deliverables, compile training resources, write release notes, and deploy.",
+    "status": "Planned"
+  }
+]

@@ -1,0 +1,39 @@
+name: Capture Assumption Workflow
+description: Sequences the extraction, formatting, user approval, and logging of planning
+  assumptions.
+category: Governance
+phase: Discovery
+objective: Capture assumptions and validate them traceably.
+prerequisites:
+- Workspace initialized
+inputs:
+- User input statement
+outputs:
+- project_resources/00-project-memory/assumptions.md
+- project_resources/00-project-memory/memory.md
+steps:
+- skill: project-memory/capture-assumption
+  description: Formulates assumption parameters from input statement.
+- decision: Are all required metadata fields (owner, validation date) defined?
+  options:
+  - option: 'Yes'
+    next_step: Proceed to Approval Gate
+  - option: 'No'
+    next_step: Ask follow-up questions to the user
+- approval: User / Product Owner
+  checklist:
+  - Assumption description is objective.
+  - Target validation owner is correct.
+- skill: project-memory/update-project-memory
+  description: Syncs the new assumption into the master memory.md.
+success_criteria:
+- Assumption is added to assumptions.md and active list in memory.md is refreshed.
+human_review:
+  required: true
+  checkpoints:
+  - Verify updates conform to project-memory-rule.md before baselining.
+failure_conditions:
+- User rejects assumption classification.
+- Validation date is in the past.
+next_workflows:
+- update-project-memory.yaml

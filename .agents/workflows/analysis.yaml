@@ -1,0 +1,56 @@
+name: Analysis Workflow
+description: Orchestrates the analysis, gap mapping, impact tracking, and prioritization
+  of requirements.
+category: Lifecycle
+phase: Analysis
+objective: Verify logical completeness and prioritize requirements into a groomed
+  backlog.
+prerequisites:
+- Elicitation Workflow completed
+inputs:
+- Elicited Requirements Log
+- Business Rules Catalog
+outputs:
+- output/phase-3-analysis/prioritized-backlog.md
+- output/phase-3-analysis/gap-analysis-report.md
+steps:
+- skill: analysis/analyze-requirements
+  description: Check for logical conflicts, feasibility, and prioritize.
+- skill: analysis/analyze-gaps
+  description: Map differences between current state and target state.
+- skill: analysis/analyze-impacts
+  description: Check changes against downstream integrations.
+- skill: analysis/analyze-risks
+  description: Analyze technical and architectural implementation risks.
+- skill: analysis/analyze-dependencies
+  description: Sequence requirement blocks based on technical path.
+- skill: analysis/analyze-business-rules
+  description: Verify rules logic and build decision trees.
+- skill: analysis/analyze-processes
+  description: Evaluate cycle times and workflow optimizations.
+- skill: analysis/analyze-data-flow
+  description: Build DFD maps and specify schema mappings.
+- skill: analysis/analyze-integrations
+  description: Audit API contract fields and payloads.
+- skill: analysis/analyze-scope
+  description: Verify alignment against baseline scope charter.
+- skill: analysis/analyze-feasibility
+  description: Assess technical/financial constraints of the solution.
+- skill: analysis/analyze-compliance
+  description: Ensure design meets privacy regulations.
+- approval: Lead Architect
+  checklist:
+  - All dependencies are mapped with no circular references.
+  - Feasibility estimations are signed off by the engineering team.
+success_criteria:
+- Gap analysis report describes all legacy system gaps.
+- MoSCoW prioritized backlog is verified and finalized.
+human_review:
+  required: true
+  checkpoints:
+  - Review feasibility study and gap resolutions before commencing solution design.
+failure_conditions:
+- High percentage (> 30%) of requirements marked unfeasible.
+- Compliance analysis reveals high security gaps.
+next_workflows:
+- design.yaml

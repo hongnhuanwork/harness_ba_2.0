@@ -1,0 +1,31 @@
+name: Capture Lesson Learned Workflow
+description: Sequences logging of process and technology learnings from milestones.
+category: Governance
+phase: Delivery
+objective: Document lessons learned for future workflow improvements.
+prerequisites:
+- Phase milestone review completed
+inputs:
+- Sprint retrospective notes
+outputs:
+- project_resources/00-project-memory/lessons-learned.md
+- project_resources/00-project-memory/memory.md
+steps:
+- skill: project-memory/capture-lesson-learned
+  description: Extract situation, lesson, and recommendation details.
+- approval: Business Analyst Lead
+  checklist:
+  - Recommendation is actionable for downstream developers/BAs.
+  - Content focuses on processes rather than personal blame.
+- skill: project-memory/update-project-memory
+  description: Refreshes lessons learned in memory.md.
+success_criteria:
+- Lesson is saved in lessons-learned.md and memory.md is updated.
+human_review:
+  required: true
+  checkpoints:
+  - Verify updates conform to project-memory-rule.md before baselining.
+failure_conditions:
+- Recommendation is not actionable.
+next_workflows:
+- update-project-memory.yaml

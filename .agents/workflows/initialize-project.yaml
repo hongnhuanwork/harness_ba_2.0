@@ -1,0 +1,61 @@
+name: Initialize Project
+description: Interactive project setup that collects metadata, detects gaps, asks follow-up
+  questions, and builds core PMO documentation.
+category: Foundation
+phase: Discovery
+objective: Collect project details, build the project profile, stakeholder register,
+  scope definition, assumptions, and constraints to establish the context baseline
+  for all downstream workflows.
+prerequisites:
+- Workspace folder structure created
+inputs:
+- Statement of Work (SOW) or initial brief if available
+outputs:
+- project_resources/01-pmo/project-profile.md
+- project_resources/01-pmo/stakeholder-register.md
+- project_resources/01-pmo/scope-definition.md
+- project_resources/01-pmo/project-assumptions.md
+- project_resources/01-pmo/project-constraints.md
+steps:
+- skill: project/collect-project-context
+  description: Scan and ingest initially uploaded folder assets and reference files.
+- skill: project/collect-project-goals
+  description: Collect business goals and target objectives interactively from the
+    user if not found in documents.
+- decision: Are there missing information gaps (e.g. unknown stakeholders, unclear
+    timelines, or missing constraints)?
+  options:
+  - option: 'Yes'
+    next_step: Ask interactive follow-up questions to the user
+  - option: 'No'
+    next_step: project/generate-project-profile
+- skill: project/collect-project-stakeholders
+  description: Collect and document stakeholder names, roles, and communication rules.
+- skill: project/collect-project-scope
+  description: Define high-level in-scope and out-of-scope boundaries.
+- skill: project/collect-project-assumptions
+  description: Draft and validate planning assumptions with the user.
+- skill: project/collect-project-constraints
+  description: Document budget, timeline, and compliance limitations.
+- skill: project/generate-project-profile
+  description: Generate the comprehensive project profile combining all collected
+    data.
+- approval: Product Owner / Stakeholder
+  checklist:
+  - Project Profile status is set to 'Approved' or 'Baselined'.
+  - Stakeholder register is complete and accurate.
+  - Scope statement accurately reflects business limits.
+success_criteria:
+- All 5 core PMO documents are successfully created and populated under project_resources/01-pmo/.
+- The Project Profile contains a status header of 'Approved' or 'Baselined'.
+- All downstream workflows can access the newly created context.
+human_review:
+  required: true
+  checkpoints:
+  - Validate the final scope and constraints register with the client.
+  - Approve Project Profile baseline to unlock other workflows.
+failure_conditions:
+- User does not respond to critical follow-up questions.
+- Baseline documents are left blank or in draft status.
+next_workflows:
+- discovery.yaml

@@ -1,0 +1,33 @@
+name: Convert URD
+description: Orchestrates the conversion of a User Requirements Document (URD) into
+  system requirements and BRD.
+category: Documents
+phase: Elicitation
+objective: Translate raw user requirements into formal, client-ready Business Requirements
+  Documents.
+prerequisites:
+- Raw URD document exists in project_resources/
+inputs:
+- User Requirements Document (URD)
+outputs:
+- output/phase-2-elicitation/BRD.md
+steps:
+- skill: elicitation/elicit-requirements
+  description: Parse URD to extract goals, user needs, and rules.
+- skill: documentation/generate-brd
+  description: Generate BRD utilizing templates from library.
+- approval: Product Owner
+  checklist:
+  - Every requirement in the URD is mapped to a BRD ID.
+  - Excluded items are explicitly listed.
+success_criteria:
+- BRD is generated with no placeholders.
+- Traceability matrix traces 100% of URD requirements.
+human_review:
+  required: true
+  checkpoints:
+  - Confirm that scope exclusions are approved before BRD lock.
+failure_conditions:
+- URD is unreadable or contradicts project charter.
+next_workflows:
+- generate-project-docs.yaml

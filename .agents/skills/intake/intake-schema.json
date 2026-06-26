@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IntakePayload",
+  "type": "object",
+  "properties": {
+    "user_input": {
+      "type": "object",
+      "properties": {
+        "raw_text": {
+          "type": "string",
+          "description": "Raw description or idea entered by the user"
+        },
+        "provided_parameters": {
+          "type": "object",
+          "properties": {
+            "domain": { "type": "string" },
+            "stakeholders": { "type": "array", "items": { "type": "string" } },
+            "scope": { "type": "string" },
+            "objectives": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "required": ["raw_text"]
+    },
+    "clarified_input": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": { "type": "string" },
+          "answer": { "type": "string" }
+        },
+        "required": ["question", "answer"]
+      },
+      "description": "Additional clarifications collected during elicitation loop"
+    },
+    "resource_context": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resource_path": { "type": "string" },
+          "resource_type": { 
+            "type": "string", 
+            "enum": ["template", "library", "project-memory", "rule"] 
+          }
+        },
+        "required": ["resource_path", "resource_type"]
+      },
+      "description": "Contextual files injected by Resource Injection Layer"
+    },
+    "inferred_context": {
+      "type": "object",
+      "description": "Any inferred domain context, assumptions, or parameters"
+    },
+    "completeness_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Input completeness rating based on BA requirements"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["incomplete", "ready"],
+      "description": "State of the input package. Must be ready to execute subsequent workflows"
+    }
+  },
+  "required": ["user_input", "resource_context", "completeness_score", "status"]
+}

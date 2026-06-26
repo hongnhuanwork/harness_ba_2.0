@@ -1,0 +1,46 @@
+name: Delivery Workflow
+description: Orchestrates operational handovers, deployment checklists, and post-launch
+  communications.
+category: Lifecycle
+phase: Delivery
+objective: Successfully deploy and transition system ownership to operations and client
+  support teams.
+prerequisites:
+- Validation Workflow signed off
+inputs:
+- Validation Signoff Certificate
+- UAT results
+outputs:
+- output/phase-6-delivery/handover-package-manifest.md
+steps:
+- skill: delivery/prepare-handover
+  description: Document admin configuration and system support contacts.
+- skill: delivery/prepare-training-materials
+  description: Generate user guides and quick reference sheets.
+- skill: delivery/prepare-release-package
+  description: Package code, migration scripts, and release notes.
+- skill: delivery/prepare-deployment-checklist
+  description: Outlines step-by-step production runbook and rollback plan.
+- skill: delivery/prepare-uat-package
+  description: Archive final UAT records and defect lists.
+- skill: delivery/prepare-go-live-checklist
+  description: Check operational support roster and scheduling.
+- skill: delivery/prepare-release-communication
+  description: Draft client notifications and maintenance banners.
+- skill: delivery/prepare-support-documentation
+  description: Provide L1/L2 FAQs and escalation guides.
+- approval: Operations Lead & Release Manager
+  checklist:
+  - Support staff are trained and rostered.
+  - Rollback scripts are archived.
+success_criteria:
+- Production deployment executes with zero downtime escalations.
+- Operational support team accepts handover package.
+human_review:
+  required: true
+  checkpoints:
+  - Review deployment steps during maintenance window.
+failure_conditions:
+- Post-deployment smoke testing fails and rollback fails.
+- IT Operations refuses handover package due to documentation gaps.
+next_workflows: []

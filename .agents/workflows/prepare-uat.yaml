@@ -1,0 +1,35 @@
+name: Prepare UAT
+description: Compiles and organizes UAT scripts, test data, and user verification
+  packages.
+category: Documents
+phase: Validation
+objective: Provide a complete UAT package ready for execution by business users.
+prerequisites:
+- User stories are finalized
+- UAT environment is ready
+inputs:
+- User Stories
+- Acceptance Criteria
+outputs:
+- output/phase-5-validation/UAT-scripts-package.md
+steps:
+- skill: documentation/generate-uat-script
+  description: Translate QA test cases into user-readable UAT scripts.
+- skill: delivery/prepare-uat-package
+  description: Package instructions, test data, and feedback templates.
+- approval: Product Owner
+  checklist:
+  - Test data is populated in the UAT environment.
+  - Feedback sheets are available.
+success_criteria:
+- UAT Package is distributed to users.
+- Users have verified credentials.
+human_review:
+  required: true
+  checkpoints:
+  - Verify database mock data resets before client launch.
+failure_conditions:
+- UAT environment is offline.
+- Feedback logs are inaccessible.
+next_workflows:
+- prepare-release.yaml

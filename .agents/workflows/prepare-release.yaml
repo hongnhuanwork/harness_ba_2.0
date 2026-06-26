@@ -1,0 +1,32 @@
+name: Prepare Release
+description: Compiles release notes, deployment instructions, and release packages.
+category: Documents
+phase: Delivery
+objective: Deliver a deployment-ready package to operations.
+prerequisites:
+- UAT signed off
+inputs:
+- Completed backlog list
+- Bug lists
+outputs:
+- output/phase-6-delivery/release-package-v1.0.zip
+steps:
+- skill: documentation/generate-release-note
+  description: Create release notes detailing features and fixes.
+- skill: delivery/prepare-release-package
+  description: Compile build binaries, scripts, and notes into release package.
+- approval: Release Manager
+  checklist:
+  - Release notes match deployment binaries.
+  - Known issues are documented.
+success_criteria:
+- Release package manifest matches build version.
+- Package is delivered to target repository.
+human_review:
+  required: true
+  checkpoints:
+  - Review deployment notes and dependencies.
+failure_conditions:
+- Build package is corrupted.
+- Release notes are missing.
+next_workflows: []

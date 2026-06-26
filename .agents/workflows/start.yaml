@@ -1,0 +1,26 @@
+name: Start Onboarding Workflow
+description: Welcome the user, explain system structure, guide usage, and route to the Intake Gate.
+category: Onboarding
+phase: Discovery
+objective: Onboard the user to HarnessAI BA system and collect initial project ideas.
+prerequisites: []
+inputs: []
+outputs: []
+steps:
+  - skill: onboarding/welcome
+    description: Display welcome message and introduce the system.
+  - skill: onboarding/system-overview
+    description: Introduce the workflows, skills, knowledge base, and 7-phase project lifecycle.
+  - skill: onboarding/usage-guide
+    description: Guide on how to interact with the system and explain structured input requirements.
+  - skill: onboarding/project-init
+    description: Guide the user to describe the new project (domain, stakeholders, scope, objectives).
+success_criteria:
+  - Welcome, system overview, and usage instructions are delivered.
+  - Project idea prompt is presented to the user.
+human_review:
+  required: false
+failure_conditions:
+  - User declines to proceed with onboarding.
+next_workflows:
+  - intake-gate.yaml

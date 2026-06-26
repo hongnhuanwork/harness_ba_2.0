@@ -1,0 +1,39 @@
+name: Capture Decision Workflow
+description: Sequences the recording of architecture and scoping decisions in ADR
+  format.
+category: Governance
+phase: Discovery
+objective: Formally document decisions with trace links.
+prerequisites:
+- Workspace initialized
+inputs:
+- Design workshop notes / user input
+outputs:
+- project_resources/00-project-memory/decisions.md
+- project_resources/00-project-memory/memory.md
+steps:
+- skill: project-memory/capture-decision
+  description: Format decision details into an ADR template.
+- decision: Does this decision contradict any active decisions in the register?
+  options:
+  - option: 'Yes'
+    next_step: Halt and trigger conflict resolution discussion
+  - option: 'No'
+    next_step: Proceed to Approval Gate
+- approval: Lead Architect / Product Owner
+  checklist:
+  - Rationale is backed by context and business goals.
+  - Consequences (pros/cons) are fully mapped.
+- skill: project-memory/update-project-memory
+  description: Refreshes active decisions list in memory.md.
+success_criteria:
+- Decision is saved in decisions.md and memory.md index is updated.
+human_review:
+  required: true
+  checkpoints:
+  - Verify updates conform to project-memory-rule.md before baselining.
+failure_conditions:
+- CCB rejects decision rationale.
+- Contradiction with locked decision remains unresolved.
+next_workflows:
+- update-project-memory.yaml
